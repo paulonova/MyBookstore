@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyBookstore</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="bookName">Book name</string>
+    <string name="price">Price</string>
+    <string name="go_to_cart">Go to cart</string>
+    <string name="share">Share</string>
+</resources>
