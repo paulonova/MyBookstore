@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(coordinatorLayout, message, Snackbar.LENGTH_LONG).setAction("Go to cart", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        Intent intent = new Intent(MainActivity.this, CartListActivity.class);
-//                        startActivity(intent);
+                        Intent intent = new Intent(MainActivity.this, CartListActivity.class);
+                        startActivity(intent);
                     }
                 }).show();
             }
