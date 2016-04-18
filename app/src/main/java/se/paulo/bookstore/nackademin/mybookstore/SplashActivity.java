@@ -16,23 +16,24 @@ public class SplashActivity extends AppCompatActivity {
         Thread timerThread = new Thread(){
             public void run(){
                 try{
-                    sleep(3000);
+                    sleep(2000);
                 }catch(InterruptedException e){
                     e.printStackTrace();
                 }finally{
                     Intent intent = new Intent(SplashActivity.this,MainActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         };
         timerThread.start();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        finish();
-    }
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        finish();
+//    }
 
 
 }

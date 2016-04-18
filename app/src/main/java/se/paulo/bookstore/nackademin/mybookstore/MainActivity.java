@@ -104,7 +104,12 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_share:
-                Toast.makeText(this, "Do something to Share..", Toast.LENGTH_SHORT).show();
+
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "I bought a new book! Testing av min Examinations Projekt!");
+                shareIntent.setType("text/plain");
+                startActivity(shareIntent);
                 return true;
         }
 
