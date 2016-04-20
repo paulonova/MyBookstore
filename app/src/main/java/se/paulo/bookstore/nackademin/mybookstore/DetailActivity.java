@@ -80,7 +80,7 @@ public class DetailActivity extends AppCompatActivity {
                 //Notifications..
                 NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(DetailActivity.this);
                 mBuilder.setSmallIcon(book.getImageId());
-                mBuilder.setContentTitle("Notification from MyBookstore App!");
+                mBuilder.setContentTitle("Notification MyBookstore");
                 mBuilder.setContentText("You bought the book " + book.getBookName() + " !");
                 NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 // notificationID allows you to update the notification later on.

@@ -22,12 +22,19 @@
         android:layout_alignParentStart="true"
         android:src="@drawable/android_logo" />
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_toRightOf="@id/imvDetailImage"
+        android:layout_toEndOf="@id/imvDetailImage"
+        android:layout_marginTop="20dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/imvDetailImage"
-        android:layout_toEndOf="@id/imvDetailImage"
+
         android:orientation="vertical">
 
         <TextView
@@ -48,11 +55,7 @@
             android:text="@string/price"
             android:textSize="20sp" />
 
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp">
+
 
             <TextView
                 android:id="@+id/txvDetailDescription"
@@ -62,9 +65,10 @@
                 android:text="@string/description"
                 android:textSize="18sp" />
 
-        </ScrollView>
+
 
     </LinearLayout>
 
+</ScrollView>
 
 </RelativeLayout>

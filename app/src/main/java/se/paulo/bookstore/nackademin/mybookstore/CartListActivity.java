@@ -51,6 +51,7 @@ public class CartListActivity extends AppCompatActivity implements CustomDialogF
 
         cartAdapter = new CartArrayAdapter(CartListActivity.this, R.layout.book_cart_list_item, Bookstore.bookToCart);
 
+        //Check if the listView is empty
         if(Bookstore.bookToCart.size() == 0){
             showAlert(this);
         }else{
@@ -99,8 +100,8 @@ public class CartListActivity extends AppCompatActivity implements CustomDialogF
                     }
                 });
 
-        AlertDialog alert11 = builder1.create();
-        alert11.show();
+        AlertDialog alert1 = builder1.create();
+        alert1.show();
     }
 
 
