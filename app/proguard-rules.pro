@@ -15,3 +15,14 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+# Ta bort alla användningar av Log när release_APK skapas
+
+-assumenosideeffects class android.util.Log {
+     public static boolean isLoggable(java.lang.String, int);
+     public static int v(...);
+     public static int i(...);
+     public static int w(...);
+     public static int d(...);
+     public static int e(...);
+ }

@@ -30,11 +30,11 @@ public class SplashActivity extends AppCompatActivity {
         timerThread.start();
     }
 
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        finish();
-//    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
+    }
 
 
 }
