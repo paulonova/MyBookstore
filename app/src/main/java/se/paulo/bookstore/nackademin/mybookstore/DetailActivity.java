@@ -2,12 +2,14 @@ package se.paulo.bookstore.nackademin.mybookstore;
 
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -69,27 +71,66 @@ public class DetailActivity extends AppCompatActivity {
                 //Sending a book object to List in CartListActivity..
                 Log.d("BOOK: ", book.getImageId() + " : " + book.getBookName() + " : " + book.getPrice());
 
+
                 //Storing information to show in CartListActivity
-                Bookstore.bookToCart.add(new Book(book.getImageId(), book.getBookName(), book.getDescription(), book.getPrice()));
+                if(isBookSlreadyBought(book.getBookName())){
+                    alertToEqualBook(DetailActivity.this);
 
-                //Storing the bookName in sharedPreferences...
-                SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString(BOOK_NAME, book.getBookName());
-                editor.commit();
+                }else{
+                    Bookstore.bookToCart.add(new Book(book.getImageId(), book.getBookName(), book.getDescription(), book.getPrice()));
 
-                //Notifications..
-                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(DetailActivity.this);
-                mBuilder.setSmallIcon(book.getImageId());
-                mBuilder.setContentTitle("Notification MyBookstore");
-                mBuilder.setContentText("You bought the book " + book.getBookName() + " !");
-                NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                // notificationID allows you to update the notification later on.
-                mNotificationManager.notify(1, mBuilder.build());
 
-                finish();
+                    //Storing the bookName in sharedPreferences...
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    editor.putString(BOOK_NAME, book.getBookName());
+                    editor.commit();
+
+                    //Notifications..
+                    NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(DetailActivity.this);
+                    mBuilder.setSmallIcon(book.getImageId());
+                    mBuilder.setContentTitle("Notification MyBookstore");
+                    mBuilder.setContentText("You bought the book " + book.getBookName() + " !");
+                    NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    // notificationID allows you to update the notification later on.
+                    mNotificationManager.notify(1, mBuilder.build());
+
+                    finish();
+
+                }
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    public boolean isBookSlreadyBought(String bookName){
+        String name = "";
+
+        for (int i = 0; i < Bookstore.bookToCart.size() ; i++) {
+            name = Bookstore.bookToCart.get(i).toString();
+            if(name.contains(bookName)){
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    public void alertToEqualBook(Context context){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage("This book you have already bought!");
+        builder.setCancelable(true);
+
+        builder.setPositiveButton(
+                "Go back and buy another one..",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                        finish();
+                    }
+                });
+
+        AlertDialog alert1 = builder.create();
+        alert1.show();
     }
 
 }

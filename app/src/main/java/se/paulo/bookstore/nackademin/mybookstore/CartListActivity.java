@@ -42,7 +42,7 @@ public class CartListActivity extends AppCompatActivity implements CustomDialogF
         // Getting the bookName stored by DetailActivity
         SharedPreferences preferences = getSharedPreferences(DetailActivity.BOOK_NAME, Context.MODE_PRIVATE);
         String sharedText = preferences.getString(DetailActivity.BOOK_NAME, null);
-        Log.d("SHARED_PREFERENCES TEXT:", sharedText);
+        //Log.d("SHARED_PREFERENCES TEXT:", sharedText);
 
 
         storedBook = Bookstore.getBookContent(bookNameRequest);
@@ -103,6 +103,7 @@ public class CartListActivity extends AppCompatActivity implements CustomDialogF
         AlertDialog alert1 = builder1.create();
         alert1.show();
     }
+
 
 
     @Override
