@@ -6,9 +6,9 @@
     <string name="price">Price</string>
     <string name="go_to_cart">Go to cart</string>
     <string name="share">Share</string>
-    <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_detail">Book Details</string>
     <string name="description">Author Paul DuBois describes everything from the basics of getting information into a database and formulating queries,
         to using MySQL with PHP or Perl to generate dynamic web pages, to writing your own programs that access MySQL databases, to administering MySQL servers.
         The book also includes a comprehensive reference section providing detailed information on MySQLs structure, language, syntax, and APIs.</string>
-    <string name="title_activity_cart_list">CartListActivity</string>
+    <string name="title_activity_cart_list">Purchased Books</string>
 </resources>
